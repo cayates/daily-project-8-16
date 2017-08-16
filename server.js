@@ -6,7 +6,7 @@ const app = express();
 const dal = require('./dal');
 const bodyParser = require('body-parser')
 
-// reassignable variables
+
 
 // let todos = [
 //     "Wash the car",
@@ -39,8 +39,11 @@ app.get ("/", function(req, res){
     res.render('todo');
 })
 
-app.post ("/todolist", function(req, res){
-    res.render('todolist');
+app.post ("/", function(req, res){
+    let updatedTodo = req.body
+    console.log(updatedTodo)
+    res.render('todo')
+    // res.render('todolist');
 })
 
 // setting up port
@@ -50,3 +53,4 @@ app.set('port', 3000)
 app.listen(app.get('port'), function () {
   console.log('This application is up and running, bro.')
 })
+
