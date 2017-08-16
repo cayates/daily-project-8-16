@@ -5,18 +5,7 @@ const mustacheExpress = require('mustache-express');
 const app = express();
 const dal = require('./dal');
 const bodyParser = require('body-parser')
-
-
-
-// let todos = [
-//     "Wash the car",
-//     "Clean my room",
-//     "Brush the dog",
-//     "Make dinner",
-//     "Go for a run",
-//     "Finish my homework",
-//     "Finish my Iron Yard Reading"
-// ];
+let updatedToDoList = [];
 
 // setting up mustache basics
 
@@ -41,9 +30,9 @@ app.get ("/", function(req, res){
 
 app.post ("/", function(req, res){
     let updatedTodo = req.body
-    console.log(updatedTodo)
+    updatedToDoList.push(updatedTodo);
     res.render('todo')
-    // res.render('todolist');
+    console.log(updatedToDoList)
 })
 
 // setting up port
