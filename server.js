@@ -36,11 +36,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // routes
 
 app.get ("/", function(req, res){
-    res.render('addtodobar');
+    res.render('todo');
 })
 
-app.get("/", function(req, res){
-    res.render(todoitems);
+app.post ("/todolist", function(req, res){
+    res.render('todolist');
 })
 
 // setting up port
