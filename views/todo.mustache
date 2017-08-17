@@ -11,14 +11,19 @@
     </form>
       <ul>
       {{#newData}}
-        <li><input class = "completeButton" type="submit" name="submit" value="Mark as Complete" method = "put">{{task}}</li>
+        <form class = "completeButton" action = "/delete/{{id}}" method = "post">
+        <button type = "submit" name = "delete">Mark as complete</button>
+        </form>
+        <li>
+        {{task}}
+        </li>
       {{/newData}}
       </ul>   
     <h3>Completed tasks</h3>
         <ul>
-        {{#completedArray}}
+        {{#completedItems}}
           <li><input class = "markAsIncomplete" type = "submit" name = "submit" value = "Mark as Incomplete">{{task}}</li>
-        {{/completedArray}}
+        {{/completedItems}}
         </ul>
     </body>
 </html>

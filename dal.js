@@ -6,7 +6,7 @@ function pendingItems(itemId){
     })
 }
 
-function changeToTrue(itemId){
+function completedItems(itemId){
     return myTodoArray.filter(function(item){
         return item.completed
     })
@@ -26,6 +26,6 @@ function removeItem(itemId){
   
   module.exports = {
     pendingItems: pendingItems,
-    changeToTrue: changeToTrue,
+    completedItems: completedItems,
     removeItem: removeItem
   }

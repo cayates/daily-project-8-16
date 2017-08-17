@@ -6,7 +6,7 @@ const app = express();
 const dal = require('./dal');
 const bodyParser = require('body-parser')
 const newData = require("./array.js")
-const completedItems = require("./completedArray.js")
+const completedItems = require("./completedArray")
 
 // this is for my completed list
 
@@ -35,8 +35,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // routes
 
 app.get ("/", function(req, res){
-    res.render('todo', {newData: dal.pendingItems(), 
-    completedItems: dal.changeToTrue()})
+    res.render('todo', {
+        newData: dal.pendingItems(), 
+        completedItems: dal.completedItems()})
 
 })
 
@@ -48,10 +49,12 @@ app.post ("/", function(req, res){
     res.redirect('/')
 })
 
-app.post ("/", function (req, res){
-    completedItems.push(req.body.todo);
+app.post ("/delete/:id", function (req, res){
+    dal.removeItem(req.params.id)
     res.redirect("/")
 })
+
+
 
 // setting up port
 
@@ -60,15 +63,6 @@ app.set('port', 3000)
 app.listen(app.get('port'), function () {
   console.log('This application is up and running, bro.')
 })
-
-// app.get ("/", function(req, res){
-//     res.render('todo', {newData: newData});
-// })
-
-// app.post ("/", function(req, res){
-//     newData.push(req.body.todo);
-//     res.redirect('/')
-// })
 
 
 
