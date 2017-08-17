@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <h1>To Do List</h1>
+    <h1>TO DO</h1>
     <form class = "addingtodos" action = "/" method = "post" >
             <input type="text" name="todo" value="{{id}}" placeholder = "Add a todo ..." >
             <input class = "addingButton" type="submit" name="submit" value="Add to do">
@@ -12,17 +12,18 @@
       <ul>
       {{#newData}}
         <form class = "completeButton" action = "/delete/{{id}}" method = "post">
-        <button type = "submit" name = "delete">Mark as complete</button>
-        </form>
         <li>
         {{task}}
         </li>
+        <button type = "submit" name = "delete">Mark as complete</button>
+        </form>
       {{/newData}}
       </ul>   
-    <h3>Completed tasks</h3>
+    <h1>DONE</h1>
         <ul>
         {{#completedItems}}
-          <li><input class = "markAsIncomplete" type = "submit" name = "submit" value = "Mark as Incomplete">{{task}}</li>
+          <li><input class = "markAsIncomplete" type = "submit" name = "submit" value = "Mark as Incomplete"></li>
+          {{task}}
         {{/completedItems}}
         </ul>
     </body>
