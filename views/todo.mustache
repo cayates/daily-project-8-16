@@ -7,16 +7,18 @@
     <h1>To Do List</h1>
     <form class = "addingtodos" action = "/" method = "post" >
             <input type="text" name="todo" value="{{id}}" placeholder = "Add a todo ..." >
-            <input type="submit" name="submit" value="Add to do">
+            <input class = "addingButton" type="submit" name="submit" value="Add to do">
     </form>
       <ul>
       {{#newData}}
-        <li>{{.}}</li>
+        <li><input class = "completeButton" type="submit" name="submit" value="Mark as Complete" method = "put">{{task}}</li>
       {{/newData}}
-      </ul> 
-      <br>
-            <input type="submit" name="submit" value="Mark Complete">
-            <input type="text" name="name" value="{{id}}" placeholder = "" >    
+      </ul>   
     <h3>Completed tasks</h3>
+        <ul>
+        {{#completedArray}}
+          <li><input class = "markAsIncomplete" type = "submit" name = "submit" value = "Mark as Incomplete">{{task}}</li>
+        {{/completedArray}}
+        </ul>
     </body>
 </html>
