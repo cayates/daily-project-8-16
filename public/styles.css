@@ -1,5 +1,5 @@
 body {
-    background-color: peachpuff;
+    background-color: honeydew;
     text-align: center;
 }
 .button {
@@ -16,4 +16,13 @@ li {
 .container {
     display: flex;
     justify-content: space-around;
+}
+.pending {
+    margin-left: 250px;
+}
+.completedtodos {
+    margin-right: 320px;
+}
+hr {
+    margin-top: 25px;
 }
